@@ -219,10 +219,6 @@
                         pointer-events: none;
                         background: #000;
                         opacity: 0;
-
-                        html.touchevents & {
-                            opacity: .7;
-                        }
                     }
 
                     .control {
@@ -242,10 +238,6 @@
                         &:hover {
                             transform: scale(1.2);
                             border-color: #fff;
-                        }
-
-                        html.touchevents & {
-                            display: block;
                         }
                     }
                 }
@@ -302,18 +294,6 @@
                 font-size: 18px;
                 margin: 0 0 24px;
                 font-weight: $fontWeight_UltraThin;
-            }
-        }
-
-        @media only screen and (max-device-width: 768px) {
-            .top-sections {
-                display: block;
-
-                > section {
-                    &:first-of-type {
-                        margin-right: 0;
-                    }
-                }
             }
         }
     }

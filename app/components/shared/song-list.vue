@@ -26,7 +26,6 @@
                         <i class="fa fa-angle-down" v-show="sortKey === 'fmtLength' && order > 0"></i>
                         <i class="fa fa-angle-up" v-show="sortKey === 'fmtLength' && order < 0"></i>
                     </th>
-                    <th class="play"></th>
                 </tr>
             </thead>
 
@@ -462,7 +461,7 @@
              */
             'song:selection-clear': function () {
                 this.clearSelection();
-            }
+            },
         },
     };
 </script>
@@ -492,17 +491,6 @@
                 width: 72px;
                 text-align: right;
             }
-
-            &.play {
-                display: none;
-
-                html.touchevents & {
-                    display: block;
-                    position: absolute;
-                    top: 8px;
-                    right: 4px;
-                }
-            }
         }
 
         th {
@@ -522,38 +510,6 @@
          */
         &.queue th {
             cursor: default;
-        }
-
-
-        @media only screen and (max-device-width: 768px) {
-            table, tbody, tr {
-                display: block;
-            }
-
-            thead, tfoot {
-                display: none;
-            }
-
-            tr {
-                padding: 8px 32px 8px 4px;
-                position: relative;
-            }
-
-            td {
-                display: inline;
-                padding: 0;
-                vertical-align: bottom;
-
-                &.album, &.time {
-                    display: none;
-                }
-
-                &.artist {
-                    opacity: .5;
-                    font-size: 90%;
-                    padding: 0 4px;
-                }
-            }
         }
     }
 </style>

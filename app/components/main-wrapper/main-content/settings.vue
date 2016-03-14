@@ -67,11 +67,5 @@
             width: 384px;
             margin-top: 12px;
         }
-
-        @media only screen and (max-device-width : 667px) {
-            input[type="text"] {
-                width: 100%;
-            }
-        }
     }
 </style>

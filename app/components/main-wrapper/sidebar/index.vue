@@ -146,13 +146,6 @@
         padding: 22px 0 0;
         max-height: calc(100vh - #{$headerHeight + $footerHeight});
         overflow: auto;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-
-        html.touchevents & {
-            // Enable scroll with momentum on touch devices
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-        }
 
         a.droppable {
             transform: scale(1.2);

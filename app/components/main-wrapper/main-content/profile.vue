@@ -261,14 +261,5 @@
                 }
             }
         }
-
-        @media only screen and (max-device-width : 667px) {
-            input {
-                &[type="text"], &[type="email"], &[type="password"] {
-                    width: 100%;
-                    height: 32px;
-                }
-            }
-        }
     }
 </style>

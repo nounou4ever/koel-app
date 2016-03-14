@@ -39,9 +39,6 @@
             };
         },
 
-        ready() {
-        },
-
         methods: {
             /**
              * Reset all self and applicable child components' states.
@@ -77,13 +74,6 @@
         display: none;
         color: $color2ndText;
         overflow: auto;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-
-        html.touchevents & {
-            // Enable scroll with momentum on touch devices
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-        }
 
         &.showing {
             display: block;

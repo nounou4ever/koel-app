@@ -85,13 +85,6 @@
                 padding: 24px;
                 overflow: auto;
                 flex: 1;
-                -ms-overflow-style: -ms-autohiding-scrollbar;
-
-                html.touchevents & {
-                    // Enable scroll with momentum on touch devices
-                    overflow-y: scroll;
-                    -webkit-overflow-scrolling: touch;
-                }
             }
         }
 
@@ -150,39 +143,6 @@
             backface-visibility: hidden;
             perspective: 1000;
             pointer-events: none;
-        }
-
-
-        @media only screen
-        and (max-device-width : 768px) {
-            h1.heading {
-                font-size: 18px;
-                min-height: 0;
-                line-height: 24px;
-                text-align: center;
-                flex-direction: column;
-
-                .toggler {
-                    font-size: 14px;
-                    margin-left: 4px;
-                    color: $colorHighlight;
-                }
-
-                .meta {
-                    display: none;
-                }
-
-                .buttons, input[type="search"] {
-                    justify-content: center;
-                    margin-top: 8px;
-                }
-            }
-
-            > section {
-                .main-scroll-wrap {
-                    padding: 12px;
-                }
-            }
         }
     }
 </style>

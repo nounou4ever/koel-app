@@ -8,10 +8,6 @@
         <td class="artist">{{ song.album.artist.name }}</td>
         <td class="album">{{ song.album.name }}</td>
         <td class="time">{{ song.fmtLength }}</td>
-        <td class="play" @click.stop="doPlayback">
-            <i class="fa fa-pause-circle" v-show="song.playbackState === 'playing'"></i>
-            <i class="fa fa-play-circle" v-else></i>
-        </td>
     </tr>
 </template>
 
@@ -76,7 +72,7 @@
              */
             deselect() {
                 this.selected = false;
-            }
+            },
         },
     };
 </script>
@@ -88,7 +84,7 @@
     .song-item {
         border-bottom: 1px solid $color2ndBgr;
 
-        html.no-touchevents &:hover {
+        &:hover {
             background: rgba(255, 255, 255, .05);
         }
 
@@ -98,15 +94,6 @@
 
         .title {
             min-width: 192px;
-        }
-
-        .play {
-            max-width: 32px;
-            opacity: .5;
-
-            i {
-                font-size: 150%;
-            }
         }
 
         &.selected {
