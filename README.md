@@ -7,7 +7,7 @@ The app will inherit all features from its web-based counterpart, plus functiona
 
 Still in its early days, but here is a screenshot:
 
-![Screenshot](http://koel.phanan.net/dist/img/app.jpg)
+![Screenshot](http://koel.phanan.net/dist/img/app.jpg?new)
 
 ## Installation
 
