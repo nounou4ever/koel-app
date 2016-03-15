@@ -58,6 +58,7 @@ app.on('ready', function () {
         {
             label: 'Application',
             submenu: [
+                { label: 'Reload', accelerator: 'CmdOrCtrl+R', click: function() { mainWindow.reload(); } },
                 { label: 'About Koel', click: function () { mainWindow.webContents.send('cmd', 'ShowAboutPanel'); } },
                 { type: 'separator' },
                 { label: 'Quit', accelerator: 'Command+Q', click: function() { app.quit(); }}
