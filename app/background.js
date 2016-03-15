@@ -6,6 +6,7 @@
 const electron = require('electron');
 const app = electron.app;
 const globalShortcut = electron.globalShortcut;
+const dialog = electron.dialog;
 
 const ipc = electron.ipcMain;
 var Menu = require('menu');
@@ -17,18 +18,25 @@ const windowStateKeeper = require('./vendor/electron_boilerplate/window_state');
 const shortcuts = ['MediaNextTrack', 'MediaPreviousTrack', 'MediaStop', 'MediaPlayPause'];
 
 var mainWindow;
+var userPreferences;
 
 // Preserver of the window size and position between app launches.
-var mainWindowState = windowStateKeeper('main', {
+var mainWindowState = windowStateKeeper('main', {});
 
+/**
+ * Listen on 'PreferenceSaved' channel to get the preferences from render process.
+ * We'll be using these preferences later, for example to check if we need to confirm before closing the app.
+ */
+ipc.on('PreferenceSaved', function (e, prefs) {
+    userPreferences = prefs;
 });
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
         x: mainWindowState.x,
         y: mainWindowState.y,
-        width: mainWindowState.width,
-        height: mainWindowState.height,
+        width: mainWindowState.width < 1280 ? 1280 : mainWindowState.width,
+        height: mainWindowState.height < 600 ? 600 : mainWindowState.height,
         title: 'Koel',
         titleBarStyle: 'hidden-inset',
         fullscreenable: false,
@@ -106,13 +114,19 @@ app.on('ready', function () {
 
     mainWindow.on('close', function (e) {
         // To confirm or not to confirm closing, it's a question.
-        /*
-        if (mainWindow.confirmClosing && !confirm('Close Koel?')) {
-            e.preventDefault();
+        if (userPreferences.confirmClosing) {
+            var choice = dialog.showMessageBox(mainWindow, {
+                type: 'question',
+                buttons: ['Yes', 'Not Really'],
+                defaultId: 0,
+                title: 'One second…',
+                message: 'Sure you want to quit Koel?',
+            });
 
-            return;
+            if (choice !== 0) {
+                e.preventDefault();
+            }
         }
-        */
 
         mainWindowState.saveState(mainWindow);
     });
