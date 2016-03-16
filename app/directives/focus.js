@@ -8,5 +8,5 @@ export default function (value) {
         return;
     }
 
-    Vue.nextTick(() => el.focus());
+    Vue.nextTick(() => this.el.focus());
 }
