@@ -6,19 +6,19 @@ export default {
     secondsToHis(d) {
         d = parseInt(d, 10);
 
-        var s = d % 60;
+        let s = d % 60;
 
         if (s < 10) {
             s = '0' + s;
         }
 
-        var i = Math.floor((d / 60) % 60);
+        let i = Math.floor((d / 60) % 60);
 
         if (i < 10) {
             i = '0' + i;
         }
 
-        var h = Math.floor(d / 3600);
+        let h = Math.floor(d / 3600);
 
         if (h < 10) {
             h = '0' + h;

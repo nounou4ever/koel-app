@@ -120,7 +120,7 @@
              * Execute the corresponding reaction(s) when the user presses Delete.
              */
             handleDelete() {
-                var songs = this.selectedSongs;
+                let songs = this.selectedSongs;
 
                 if (!songs.length) {
                     return;
@@ -149,7 +149,7 @@
              * @param {Object} e The keydown event.
              */
             handleEnter(e) {
-                var songs = this.selectedSongs;
+                let songs = this.selectedSongs;
 
                 if (!songs.length) {
                     return;
@@ -238,8 +238,8 @@
              * @return {Array.<Object>} An array of Song objects
              */
             gatherSelected() {
-                var selectedRows = _.where(this.$refs.rows, { selected: true });
-                var ids = _.map(selectedRows, row => row.song.id);
+                let selectedRows = _.where(this.$refs.rows, { selected: true });
+                let ids = _.map(selectedRows, row => row.song.id);
 
                 this.selectedSongs = songStore.byIds(ids);
             },
@@ -259,7 +259,7 @@
              * @param  {Object} e
              */
             rowClick(songId, e) {
-                var row = this.getComponentBySongId(songId);
+                let row = this.getComponentBySongId(songId);
 
                 if (e.ctrlKey || e.metaKey) {
                     this.toggleRow(row);
@@ -292,9 +292,9 @@
             selectRowsBetweenIndexes(indexes) {
                 indexes.sort((a, b) => a - b);
 
-                var rows = $(this.$els.wrapper).find('tbody tr');
+                let rows = $(this.$els.wrapper).find('tbody tr');
 
-                for (var i = indexes[0]; i <= indexes[1]; ++i) {
+                for (let i = indexes[0]; i <= indexes[1]; ++i) {
                     this.getComponentBySongId($(rows[i - 1]).data('song-id')).select();
                 }
             },
@@ -316,7 +316,7 @@
              */
             dragStart(songId, e) {
                 // If the user is dragging an unselected row, clear the current selection.
-                var currentRow = this.getComponentBySongId(songId);
+                let currentRow = this.getComponentBySongId(songId);
                 if (!currentRow.selected) {
                     this.clearSelection();
                     currentRow.select();
@@ -326,12 +326,12 @@
                 this.$nextTick(() => {
                     // We can opt for something like application/x-koel.text+plain here to sound fancy,
                     // but forget it.
-                    var songIds = _.pluck(this.selectedSongs, 'id');
+                    let songIds = _.pluck(this.selectedSongs, 'id');
                     e.dataTransfer.setData('text/plain', songIds);
                     e.dataTransfer.effectAllowed = 'move';
 
                     // Set a fancy drop image using our ghost element.
-                    var $ghost = $('#dragGhost').text(`${songIds.length} song${songIds.length === 1 ? '' : 's'}`);
+                    let $ghost = $('#dragGhost').text(`${songIds.length} song${songIds.length === 1 ? '' : 's'}`);
                     e.dataTransfer.setDragImage($ghost[0], 0, 0);
                 });
             },
@@ -368,7 +368,7 @@
                     return false;
                 }
 
-                var songs = this.selectedSongs;
+                let songs = this.selectedSongs;
 
                 if (!songs.length) {
                     return false;
@@ -390,7 +390,7 @@
 
             openContextMenu(songId, e) {
                 // If the user is right-click an unselected row, clear the current selection and select it instead.
-                var currentRow = this.getComponentBySongId(songId);
+                let currentRow = this.getComponentBySongId(songId);
                 if (!currentRow.selected) {
                     this.clearSelection();
                     currentRow.select();
@@ -417,8 +417,8 @@
 
                 // Scroll the item into view if it's lost into oblivion.
                 if (this.type === 'queue') {
-                    var $wrapper = $(this.$els.wrapper);
-                    var $row = $wrapper.find(`.song-item[data-song-id="${song.id}"]`);
+                    let $wrapper = $(this.$els.wrapper);
+                    let $row = $wrapper.find(`.song-item[data-song-id="${song.id}"]`);
 
                     if (!$row.length) {
                         return;

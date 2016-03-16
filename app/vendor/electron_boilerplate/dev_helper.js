@@ -1,11 +1,11 @@
 'use strict';
 
-var app = require('app');
-var Menu = require('menu');
-var BrowserWindow = require('browser-window');
+let app = require('app');
+let Menu = require('menu');
+let BrowserWindow = require('browser-window');
 
 module.exports.setDevMenu = function () {
-    var devMenu = Menu.buildFromTemplate([{
+    let devMenu = Menu.buildFromTemplate([{
         label: 'Development',
         submenu: [{
             label: 'Reload',

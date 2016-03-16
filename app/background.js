@@ -9,7 +9,7 @@ const globalShortcut = electron.globalShortcut;
 const dialog = electron.dialog;
 
 const ipc = electron.ipcMain;
-var Menu = require('menu');
+let Menu = require('menu');
 
 const BrowserWindow = require('browser-window');
 const env = require('./vendor/electron_boilerplate/env_config');
@@ -17,11 +17,11 @@ const windowStateKeeper = require('./vendor/electron_boilerplate/window_state');
 
 const shortcuts = ['MediaNextTrack', 'MediaPreviousTrack', 'MediaStop', 'MediaPlayPause'];
 
-var mainWindow;
-var userPreferences;
+let mainWindow;
+let userPreferences;
 
 // Preserver of the window size and position between app launches.
-var mainWindowState = windowStateKeeper('main', {});
+let mainWindowState = windowStateKeeper('main', {});
 
 /**
  * Listen on 'PreferenceSaved' channel to get the preferences from render process.
@@ -54,7 +54,7 @@ app.on('ready', function () {
         mainWindow.loadURL('file://' + __dirname + '/app.html');
     }
 
-    var menuTemplate = [
+    let menuTemplate = [
         {
             label: 'Application',
             submenu: [
@@ -116,7 +116,7 @@ app.on('ready', function () {
     mainWindow.on('close', function (e) {
         // To confirm or not to confirm closing, it's a question.
         if (userPreferences.confirmClosing) {
-            var choice = dialog.showMessageBox(mainWindow, {
+            let choice = dialog.showMessageBox(mainWindow, {
                 type: 'question',
                 buttons: ['Yes', 'Not Really'],
                 defaultId: 0,

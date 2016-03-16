@@ -32,7 +32,7 @@ export default {
         this.reset();
 
         http.get('data', response => {
-            var data = response.data;
+            let data = response.data;
 
             assign(this.state, data);
 

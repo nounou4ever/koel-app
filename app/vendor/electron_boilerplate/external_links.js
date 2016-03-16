@@ -16,13 +16,13 @@
 (function () {
     'use strict';
 
-    var shell = require('shell');
+    let shell = require('shell');
 
-    var supportExternalLinks = function (e) {
-        var href;
-        var isExternal = false;
+    let supportExternalLinks = function (e) {
+        let href;
+        let isExternal = false;
 
-        var checkDomElement = function (element) {
+        let checkDomElement = function (element) {
             if (element.nodeName === 'A') {
                 href = element.getAttribute('href');
             }

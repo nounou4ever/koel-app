@@ -165,7 +165,7 @@
              * Koel will reload once the connection is successful.
              */
             connectToLastfm() {
-                var authWin = new BrowserWindow({ width: 800, height: 600, show: false });
+                let authWin = new BrowserWindow({ width: 800, height: 600, show: false });
 
                 authWin.on('closed', function() {
                     authWin = null;
