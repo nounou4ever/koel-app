@@ -4,7 +4,7 @@
   "homepage": "http://koel.phanan.net",
   "identifier": "com.phanan.koel-app",
   "description": "The official desktop application for Koel.",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Phan An <me@phanan.net>",
   "main": "background.js",
   "config": {
