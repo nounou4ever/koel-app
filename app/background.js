@@ -85,12 +85,6 @@ app.on('ready', function () {
             label: 'Development',
             submenu: [
                 {
-                    label: 'Reload',
-                    accelerator: 'CmdOrCtrl+R',
-                    click: function () {
-                        mainWindow.webContents.reloadIgnoringCache();
-                    }
-                }, {
                     label: 'Toggle DevTools',
                     accelerator: 'Alt+CmdOrCtrl+I',
                     click: function () {
