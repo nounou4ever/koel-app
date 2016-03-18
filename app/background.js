@@ -42,6 +42,9 @@ app.on('ready', function () {
         fullscreenable: false,
         minHeight: 600,
         minWidth: 1280,
+        icon: 'file://' + __dirname + '/img/icon.png',
+        autoHideMenuBar: true,
+        darkTheme: true,
     });
 
     if (mainWindowState.isMaximized) {
