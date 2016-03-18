@@ -9,4 +9,4 @@ export default function (value) {
     }
 
     Vue.nextTick(() => this.el.focus());
-}
+};
