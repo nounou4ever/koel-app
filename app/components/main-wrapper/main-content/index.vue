@@ -116,15 +116,6 @@
 
                 @include button-group();
             }
-
-            input[type="search"] {
-                width: 128px;
-                transition: width .3s;
-
-                &:focus {
-                    width: 192px;
-                }
-            }
         }
 
         .translucent {
