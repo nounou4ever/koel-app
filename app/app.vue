@@ -25,7 +25,6 @@
     import { ipcRenderer as ipc } from 'electron';
     import Vue from 'vue';
     import $ from 'jquery';
-    import _ from 'lodash';
 
     import siteHeader from './components/site-header/index.vue';
     import siteFooter from './components/site-footer/index.vue';
@@ -44,7 +43,6 @@
     import focusDirective from './directives/focus';
     import ls from './services/ls';
     import { filterSongBy, caseInsensitiveOrderBy } from './filters/index';
-
 
     export default {
         components: { siteHeader, siteFooter, mainWrapper, overlay, loginForm, editSongsForm, about },
