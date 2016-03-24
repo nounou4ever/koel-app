@@ -64,7 +64,6 @@
 
                 <div class="wrapper">
                     <artist-item v-for="artist in topArtists" :artist="artist"></artist-item>
-                    <span class="item" v-for="n in 5"></span>
                 </div>
             </section>
 
