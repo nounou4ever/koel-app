@@ -165,10 +165,28 @@
              * Koel will reload once the connection is successful.
              */
             connectToLastfm() {
-                let authWin = new BrowserWindow({ width: 800, height: 600, show: false });
+                let authWin = new BrowserWindow({
+                    width: 800,
+                    height: 600,
+                    show: false,
+                    title: 'Connecting to Last.fm…',
+                });
+
+                let web = authWin.webContents;
+                const lastfmCbRE = /\/api\/lastfm\/callback\?/;
 
                 authWin.on('closed', function() {
                     authWin = null;
+                });
+
+                web.on('did-navigate', function (e, url) {
+                    // Very ugly check for the time being.
+                    if (lastfmCbRE.test(url) && web.getTitle() === 'Authentication successful!') {
+                        setTimeout(function () {
+                            authWin.close();
+                            window.location.reload();
+                        }, 3000);
+                    }
                 });
 
                 authWin.loadURL(`${ls.get('koelHost')}/api/lastfm/connect?jwt-token=${ls.get('jwt-token')}`);
