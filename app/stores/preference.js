@@ -18,7 +18,9 @@ export default {
         equalizer: {
             preamp: 0,
             gains: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        }
+        },
+        artistsViewMode: null,
+        albumsViewMode: null,
     },
 
     /**

@@ -3,7 +3,7 @@
         <h1 class="heading">
             <span>Users
             <div class="buttons">
-                <button class="btn-create" @click="creating = !creating">
+                <button class="btn btn-green" @click="creating = !creating">
                     <i class="fa fa-plus"></i>
                     Add</button>
             </div>
